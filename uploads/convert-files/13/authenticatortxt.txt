@@ -1,0 +1,1 @@
+otpauth://totp/VietMMO:root%40gmail.com?secret=AWN5N6NUO734FKXQ&issuer=VietMMO
