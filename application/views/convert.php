@@ -48,7 +48,6 @@
                                 <input type="number" class="form-control form-input" name="phone" maxlength="199" placeholder="<?php echo trans("phone"); ?>" value="<?php echo old('phone'); ?>" <?php echo ($this->rtl == true) ? 'dir="rtl"' : ''; ?> required>
                             </div>
 
-
                             <div class="form-group">
                                 <input type="file" class="form-control form-input" name="file"   <?php echo ($this->rtl == true) ? 'dir="rtl"' : ''; ?> required>
                             </div>

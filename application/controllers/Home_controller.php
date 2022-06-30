@@ -90,6 +90,8 @@ class Home_controller extends Home_Core_Controller
         $this->form_validation->set_rules('name', trans("name"), 'required|max_length[200]');
         $this->form_validation->set_rules('email', trans("email_address"), 'required|max_length[200]');
         $this->form_validation->set_rules('message', trans("message"), 'required|max_length[5000]');
+
+
         if ($this->form_validation->run() === FALSE) {
             $this->session->set_flashdata('errors', validation_errors());
             $this->session->set_flashdata('form_data', $this->contact_model->input_values());
@@ -146,6 +148,7 @@ class Home_controller extends Home_Core_Controller
     {
         post_method();
 
+
         $convert_url = $this->input->post('convert_url');
         if (!empty($convert_url)) {
             exit();
@@ -157,9 +160,10 @@ class Home_controller extends Home_Core_Controller
         }
 
         //validate inputs
-        $this->form_validation->set_rules('name', trans("name"), 'required|max_length[200]');
+        $this->form_validation->set_rules('name', trans("name"), 'required|max_length[20]');
         $this->form_validation->set_rules('email', trans("email_address"), 'required|max_length[200]');
-//        $this->form_validation->set_rules('message', trans("message"), 'required|max_length[5000]');
+        $this->form_validation->set_rules('file', trans("file"),'callback_file_check');
+
         if ($this->form_validation->run() === FALSE) {
             $this->session->set_flashdata('errors', validation_errors());
             $this->session->set_flashdata('form_data', $this->convert_model->input_values());
@@ -181,6 +185,25 @@ class Home_controller extends Home_Core_Controller
             }
         }
     }
+
+    public function file_check($str){
+        $allowed_mime_type_arr = array('apk','zip','rar');
+        $mime = pathinfo($_FILES['file']['name'],PATHINFO_EXTENSION);
+
+        if(isset($_FILES['file']['name']) && $_FILES['file']['name']!=""){
+            if(in_array($mime, $allowed_mime_type_arr)){
+                return true;
+            }else{
+                $this->form_validation->set_message('file_check', 'Please select only apk/zip file.');
+                return false;
+            }
+        }else{
+            $this->form_validation->set_message('file_check', 'Please choose a file to upload.');
+            return false;
+        }
+    }
+
+
 
     /**
      * Dynamic Page by Name Slug

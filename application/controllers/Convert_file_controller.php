@@ -103,8 +103,6 @@ class Convert_file_controller extends Home_Core_Controller
      */
     public function reject_convert()
     {
-
-
         $id = $this->input->post('id', true);
         $convert_request = $this->convert_model->get_convert_file($id);
 

@@ -22,7 +22,13 @@ class Auth_model extends CI_Model
         $this->load->library('bcrypt');
 
         $data = $this->input_values();
-        $user = $this->get_user_by_email($data['email']);
+
+        $dataEmail =  $data['email'];
+        if (!filter_var($dataEmail, FILTER_VALIDATE_EMAIL)) {
+            $user = $this->get_user_by_username($dataEmail);
+        }else{
+            $user = $this->get_user_by_email($dataEmail);
+        }
 
         if (!empty($user)) {
             //check password

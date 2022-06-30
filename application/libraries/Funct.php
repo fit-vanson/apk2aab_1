@@ -5,8 +5,6 @@ class Funct{
 
 
     public function telegram_notification($mess,$option1, $option2, $filename, $chatID, $token) {
-
-
         if($mess == 'new_convert'){
             $text = "<b>New Convert file apk2aab </b> \n"
                 . "<b>Email Address: </b>\n"
@@ -32,6 +30,9 @@ class Funct{
         $url = $url . "&text=" . urlencode($text);
         file_get_contents($url);
     }
+
+
+
 
 
 }

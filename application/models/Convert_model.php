@@ -17,8 +17,9 @@ class Convert_model extends CI_Model
 			'name' => $this->input->post('name', true),
 			'email' => $this->input->post('email', true),
 			'phone' => $this->input->post('phone', true),
-			'file' => $this->input->post('file', true)
+//			'file' => $this->input->file('file', true)
 		);
+
 		return $data;
 	}
 
