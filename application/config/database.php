@@ -76,9 +76,9 @@ $query_builder = TRUE;
 $db['default'] = array(
     'dsn'	=> '',
     'hostname' => 'localhost',
-    'username' => 'root',
-    'password' => '',
-    'database' => 'apk2aab',
+    'username' => 'admin_apk2aab',
+    'password' => 'zpF5o13_6',
+    'database' => 'db_apk2aab',
     'dbdriver' => 'mysqli',
     'dbprefix' => '',
     'pconnect' => FALSE,
@@ -93,4 +93,8 @@ $db['default'] = array(
     'stricton' => FALSE,
     'failover' => array(),
     'save_queries' => TRUE
+
+//        'username' => 'admin_apk2aab',
+//    'password' => 'zpF5o13_6',
+//    'database' => 'db_apk2aab',
 );
